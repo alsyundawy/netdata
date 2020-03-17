@@ -3,10 +3,9 @@
 #ifndef NETDATA_RRDENGINELIB_H
 #define NETDATA_RRDENGINELIB_H
 
-#include "rrdengine.h"
-
 /* Forward declarations */
 struct rrdeng_page_descr;
+struct rrdengine_instance;
 
 #define STR_HELPER(x) #x
 #define STR(x) STR_HELPER(x)
@@ -28,10 +27,12 @@ struct rrdeng_page_descr;
 typedef uintptr_t rrdeng_stats_t;
 
 #ifdef __ATOMIC_RELAXED
-#define rrd_stat_atomic_add(p, n) do {(void) __atomic_fetch_add(p, n, __ATOMIC_RELAXED);} while(0)
+#define rrd_atomic_fetch_add(p, n) __atomic_fetch_add(p, n, __ATOMIC_RELAXED)
 #else
-#define rrd_stat_atomic_add(p, n) do {(void) __sync_fetch_and_add(p, n);} while(0)
+#define rrd_atomic_fetch_add(p, n) __sync_fetch_and_add(p, n)
 #endif
+
+#define rrd_stat_atomic_add(p, n) rrd_atomic_fetch_add(p, n)
 
 #define RRDENG_PATH_MAX (4096)
 

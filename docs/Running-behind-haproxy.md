@@ -1,3 +1,10 @@
+<!--
+---
+title: "Netdata via HAProxy"
+custom_edit_url: https://github.com/netdata/netdata/edit/master/docs/Running-behind-haproxy.md
+---
+-->
+
 # Netdata via HAProxy
 
 > HAProxy is a free, very fast and reliable solution offering high availability, load balancing, 
@@ -26,7 +33,7 @@ A simple example where the base URL, say <http://example.com>, is used with no s
 
 ### Frontend
 
-Create a frontend to recieve the request.
+Create a frontend to receive the request.
 
 ```conf
 frontend http_frontend
@@ -80,7 +87,7 @@ frontend http_frontend
 
 ### Backend
 
-Same as simple example, expept remove `/netdata/` with regex.
+Same as simple example, except remove `/netdata/` with regex.
 
 ```conf
 backend netdata_backend

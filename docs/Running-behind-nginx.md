@@ -1,3 +1,10 @@
+<!--
+---
+title: "Running Netdata behind Nginx"
+custom_edit_url: https://github.com/netdata/netdata/edit/master/docs/Running-behind-nginx.md
+---
+-->
+
 # Running Netdata behind Nginx
 
 ## Intro
@@ -205,7 +212,7 @@ You can also use a unix domain socket. This will also provide a faster route bet
 
 ```
 [web]
-    bind to = unix:/tmp/netdata.sock
+    bind to = unix:/var/run/netdata/netdata.sock
 ```
 
 *note: Netdata v1.8+ support unix domain sockets*
@@ -214,7 +221,7 @@ At the Nginx side, use something like this to use the same unix domain socket:
 
 ```conf
 upstream backend {
-    server unix:/tmp/netdata.sock;
+    server unix:/var/run/netdata/netdata.sock;
     keepalive 64;
 }
 ```

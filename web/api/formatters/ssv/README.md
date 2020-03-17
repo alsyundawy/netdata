@@ -1,3 +1,10 @@
+<!--
+---
+title: "SSV formatter"
+custom_edit_url: https://github.com/netdata/netdata/edit/master/web/api/formatters/ssv/README.md
+---
+-->
+
 # SSV formatter
 
 The SSV formatter sums all dimensions in [results of database queries](../../queries)
@@ -11,7 +18,7 @@ It supports the following formats:
 | `ssvcomma` | text/plain       | a comma separated list of values |
 | `array`    | application/json | a JSON array                     |
 
-The CSV formatter respects the following API `&options=`:
+The SSV formatter respects the following API `&options=`:
 
 | option    | supported | description                                                                         |
 | :----:|:-------:|:----------|
